@@ -15,3 +15,4 @@ Chapter 4<br>
 Chapter 6<br>
 -page 171=188
 - POLYPHASE IMPLEMENTATION OF FRACTIONAL SAMPLING RATE CONVERTERS (page 176)
+![image](https://github.com/anajovanoviic/multirate-systems/assets/51513732/95ff0e5c-b19d-4740-bff5-a0a1033b1515)
