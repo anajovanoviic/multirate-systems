@@ -11,3 +11,6 @@ Chapter 3<br>
 
 Chapter 4<br>
 -page 103=120
+
+Chapter 6<br>
+-page 171=188
