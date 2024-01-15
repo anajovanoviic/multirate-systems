@@ -11,7 +11,7 @@ subplot(3,1,1), plot(f,20*log10(abs(H)))
 xlabel('Normalized Frequency [\omega/\pi]'), ylabel('Gain [dB]')
 axis([0,1,-60,2])
 % Input signal x[n]
-Fx = 32 000; Fy = 48000;
+Fx = 32000; Fy = 48000;
 F = [0,2/3+1/5,1]; m = [0,1,0]; % Setting the input parameters for fir2
 x = fir2(255,F,m); % Generating the original signal ‘x’
 [X,f] = freqz(x,1,512,Fx); % Spectrum of the original signal
