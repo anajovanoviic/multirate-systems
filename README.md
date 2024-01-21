@@ -18,7 +18,7 @@ Chapter 6<br>
 ![image](https://github.com/anajovanoviic/multirate-systems/assets/51513732/95ff0e5c-b19d-4740-bff5-a0a1033b1515) <br>
 
 Project 1 <br>
-* Similar to Example 6.3 and Exercise 6.3
+* Similar to Example 6.3 and Exercise 6.3 <br>
 Source: https://informatika.buzdo.com/s008-teorija-signala.htm
 ![image](https://github.com/anajovanoviic/multirate-systems/assets/51513732/e5e8bf19-e734-4bbf-b3ea-8bf1945caba6)
 
