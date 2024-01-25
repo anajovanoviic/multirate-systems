@@ -3,7 +3,7 @@
 clear all, close all
 % Lowpass filter design
 N = 144;                                                % FIR filter length
-Fp = 0.9/3; Fs = 1/3; amp =  [1,1,0,0];                 % Setting filter design parameters
+Fp = 0.9/15; Fs = 1/15; amp =  [1,1,0,0];                 % Setting filter design parameters
 h = firgr(N-1,[0,Fp,Fs,1], [1,1,0,0]);                  % Filter design
 [H,f]=freqz(h,1,512,2);                                 % Filter frequency response
 figure (1)
@@ -24,40 +24,24 @@ xlabel('Frequency [kHz]'), ylabel('|X(F)|'), axis([0,24,0,1])
 title('Figure 2, Spectrum of the original signal')
 
 % Polyphase decomposition
-e0 = h(1:2:length(h)); e1 = h(2:2:length(h));
-E0=reshape(e0,3,length(e0)/3);
-E1=reshape(e0,3,length(e1)/3);
+e0 = h(1:7:length(h)); e1 = h(2:7:length(h));e2 = h(3:7:length(h)); e3 = h(4:7:length(h)); e4 = h(5:7:length(h));
+e5 = h(6:7:length(h)); e6 = h(7:7:length(h));e7 = h(8:7:length(h)); e8 = h(9:7:length(h)); e9 = h(10:7:length(h));
+e10 = h(11:7:length(h)); e11 = h(12:7:length(h));e12 = h(13:7:length(h)); e13 = h(14:7:length(h)); 
 
-% Down-sampling
-u1 = x;
-u0 = [0,x(1:length(x)-1)];
-u00d = u0(1:3:length(u0));
-u01d = [0,u0(3:3:length(u0))];
-u02d = [0,u0(2:3:length(u0))];
-u10d = u1(1:3:length(u1));
-u11d = [0,u1(3:3:length(u1))];
-u12d = [0,u1(2:3:length(u1))];
+E0=reshape(e0,15,length(e0)/15);
+E1=reshape(e1,15,length(e1)/15);
+E2=reshape(e2,15,length(e2)/15);
+E3=reshape(e3,15,length(e3)/15);
+E4=reshape(e4,15,length(e4)/15);
 
-% Polyphase filtering
-x00 = filter(2*E0(1,:),1,u00d);
-x01 = filter(2*E0(2,:),1,u01d);
-x02 = filter(2*E0(3,:),1,u02d);
-x10 = filter(2*E1(1,:),1,u10d);
-x11 = filter(2*E1(2,:),1,u11d);
-x12 = filter(2*E1(3,:),1,u12d);
+E5=reshape(e5,15,length(e5)/15);
+E6=reshape(e6,15,length(e6)/15);
+E7=reshape(e7,15,length(e7)/15);
+E8=reshape(e8,15,length(e8)/15);
+E9=reshape(e9,15,length(e9)/15);
 
-yy0=x00+x01+x02;
-yy1=x10+x11+x12;
+E10=reshape(e10,15,length(e10)/15);
+E11=reshape(e11,15,length(e11)/15);
+E12=reshape(e12,15,length(e12)/15);
+E13=reshape(e13,15,length(e13)/15);
 
-y0ii=zeros(1,L*length(yy0));
-y1ii=zeros(1,L*length(yy1));
-y0ii(1:L:length(y0ii))=yy0;                            % Up-sampled signal
-y1ii(1:L:length(y1ii))=yy1;                            % Up-sampled signal
-
-y1 = [0,(y1ii(1:(length(y1ii)-1)))];
-
-y = y0ii+y1;                                             % Output signal
-[Y,f] = freqz(y,1,512,Fy);                               % Frequency response of the output signal
-subplot(2,1,2), plot(f/1000,abs(Y))
-xlabel('Frequency [kHz]'), ylabel('|Y(F)|'), axis([0,16,0,0.7])
-title('Spectrum of the Output Signal')
