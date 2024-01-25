@@ -26,7 +26,7 @@ title('Figure 2, Spectrum of the original signal')
 % Polyphase decomposition
 e0 = h(1:7:length(h)); e1 = h(2:7:length(h));e2 = h(3:7:length(h)); e3 = h(4:7:length(h)); e4 = h(5:7:length(h));
 e5 = h(6:7:length(h)); e6 = h(7:7:length(h));e7 = h(8:7:length(h)); e8 = h(9:7:length(h)); e9 = h(10:7:length(h));
-e10 = h(11:7:length(h)); e11 = h(12:7:length(h));e12 = h(13:7:length(h)); e13 = h(14:7:length(h)); 
+e10 = h(11:7:length(h)); e11 = h(12:7:length(h));e12 = h(13:7:length(h)); e13 = h(14:7:length(h)); e14 = h(15:7:length(h));
 
 E0=reshape(e0,15,length(e0)/15);
 E1=reshape(e1,15,length(e1)/15);
@@ -44,4 +44,6 @@ E10=reshape(e10,15,length(e10)/15);
 E11=reshape(e11,15,length(e11)/15);
 E12=reshape(e12,15,length(e12)/15);
 E13=reshape(e13,15,length(e13)/15);
+E14=reshape(e14,15,length(e14)/15);
+
 
